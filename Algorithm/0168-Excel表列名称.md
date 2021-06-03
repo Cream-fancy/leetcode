@@ -44,13 +44,12 @@
 
 ```cpp
 string convertToTitle(int columnNumber) {
-  int cur=columnNumber-1;
   string s;
-  while(cur/26){
-    s.push_back('A'+cur%26);
-    cur=cur/26-1;
+  while(columnNumber){
+    --columnNumber;
+    s.push_back('A'+columnNumber%26);
+    columnNumber/=26;
   }
-  s.push_back('A'+cur);
   reverse(s.begin(), s.end());
   return s;
 }
